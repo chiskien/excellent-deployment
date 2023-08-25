@@ -1,10 +1,10 @@
-version: "4.0"
+version: "3.8"
 services:
-  catalog-services:
+  excellent-bookshop:
     depends_on:
       - excellent-postgres
-    image: "excellent_bookshop"
-    container_name: "excellent_bookshop"
+    image: "excellent_bookshop:0.0.1-SNAPSHOT"
+    container_name: "excellent-bookshop"
     ports:
       - 9001:9001
     environment:
