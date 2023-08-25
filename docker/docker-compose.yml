@@ -1,0 +1,24 @@
+version: "4.0"
+services:
+  catalog-services:
+    depends_on:
+      - excellent-postgres
+    image: "excellent_bookshop"
+    container_name: "excellent_bookshop"
+    ports:
+      - 9001:9001
+    environment:
+      - BPL_JVM_THREAD_COUNT=50
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://excellent-postgres:5432/polardb_catalog
+      - SPRING_PROFILES_ACTIVE=demo
+  
+  excellent-postgres:
+    image: "postgres:15.3"
+    container_name: "excellent-postgres"
+    ports:
+      - 5432:5432
+    environment:
+      - POSGRES_USER=postgres
+      - POSTGRES_PASSWORD=chiskien
+      - POSTGRES_DB=polardb_catalog
+      
