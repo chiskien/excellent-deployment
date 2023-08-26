@@ -3,12 +3,15 @@ services:
   excellent-bookshop:
     depends_on:
       - excellent-postgres
-    image: "excellent_bookshop:0.0.1-SNAPSHOT"
+    image: "excellent-bookshop"
     container_name: "excellent-bookshop"
     ports:
       - 9001:9001
+      - 8001:8001
     environment:
       - BPL_JVM_THREAD_COUNT=50
+      - BPL_DEBUG_ENABLED=true
+      - BPL_DEBUG_PORT=8001
       - SPRING_DATASOURCE_URL=jdbc:postgresql://excellent-postgres:5432/polardb_catalog
       - SPRING_PROFILES_ACTIVE=demo
   
