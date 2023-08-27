@@ -24,7 +24,7 @@ services:
     environment:
       - POSGRES_USER=postgres
       - POSTGRES_PASSWORD=chiskien
-      - POSTGRES_DB=polardb_catalog
+      - POSTGRES_DB=excellentdb_catalog
 
   config-service: 
     image: "config-service:0.0.1-SNAPSHOT"
