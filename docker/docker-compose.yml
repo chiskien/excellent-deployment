@@ -14,7 +14,7 @@ services:
       - BPL_DEBUG_PORT=8001
       - SPRING_CLOUD_CONFIG_URI=http://config-service:8888
       - SPRING_DATASOURCE_URL=jdbc:postgresql://excellent-postgres:5432/excellentdb_catalog
-      - SPRING_PROFILES_ACTIVE=demo
+      - SPRING_PROFILES_ACTIVE=prod
   
   excellent-postgres:
     image: "postgres:15.3"
