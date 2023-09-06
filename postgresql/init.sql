@@ -1,0 +1,2 @@
+CREATE DATABASE excellentdb_catalog;
+CREATE DATABASE excellentdb_order;
