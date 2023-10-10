@@ -30,7 +30,7 @@ services:
   order-service:
     depends_on:
       - excellent-postgres
-    image: "order-service:0.0.1-SNAPSHOT"
+    image: "order-service"
     container_name: "order-service"
     ports:
       - 9002:9002
@@ -46,7 +46,7 @@ services:
 
 
   config-service: 
-    image: "config-service:0.0.1-SNAPSHOT"
+    image: "config-service"
     container_name: "config-service"
     ports:
       - 8888:8888
