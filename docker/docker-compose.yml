@@ -54,5 +54,12 @@ services:
     environment:
       - BPL_JVM_THREAD_COUNT=50
       - BPL_DEBUG_ENABLED=true
-      - BPL_DEBUG_PORT=9888
+      - BPL_DEBUG_PORT=988
+
+  excellent-redis:
+    image: "redis:7.2"
+    container_name: "excellent-redis"
+    ports:
+      - 6379:6379
+
     
