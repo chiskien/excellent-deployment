@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: excellent-redis
+  labels:
+    db: excellent-redis
+spec:
+  selector:
+    matchLabels:
+      db: excellent-redis
+  template:
+    metadata:
+      labels:
+        db: excellent-redis
+    spec:
+      containers:
+        - name: excellent-redis
+          image: redis:7.2
+          resources:
+            requests:
+              cpu: 100m
+              memory: 50Mi
+            limits:
+              cpu: 200m
+              memory: 100Mi
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: excellent-redis
+  labels:
+    db: excellent-redis
+spec:
+  type: ClusterIP
+  selector:
+    db: excellent-redis
+  ports:
+  - protocol: TCP
+    port: 6379
+    targetPort: 6379
