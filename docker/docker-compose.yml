@@ -44,7 +44,6 @@ services:
       - SPRING_R2DBC_URL=r2dbc:postgresql://excellent-postgres:5432/excellentdb_order
       - SPRING_FLYWAY_URL=jdbc:postgresql://excellent-postgres:5432/excellentdb_order
 
-
   config-service: 
     image: "config-service"
     container_name: "config-service"
@@ -78,4 +77,12 @@ services:
       - SPRING_CLOUD_CONFIG_URI=http://config-service:8888
       - SPRING_REDIS_HOST=polar-redis
 
-    
+  excellent-rabbitmq:
+    image: rabbitmq:3.12-management
+    container_name: excellent-rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf 
+
