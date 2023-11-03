@@ -1,10 +1,10 @@
 version: "3.8"
 services:
-  excellent-bookshop:
+  excellent-catalog-service:
     depends_on:
       - excellent-postgres
-    image: "excellent-bookshop"
-    container_name: "excellent-bookshop"
+    image: "catalog-service"
+    container_name: "catalog-service"
     ports:
       - 9001:9001
       - 8001:8001
@@ -27,7 +27,7 @@ services:
     volumes:
       - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
 
-  order-service:
+  excellent-order-service:
     depends_on:
       - excellent-postgres
     image: "order-service"
@@ -44,7 +44,7 @@ services:
       - SPRING_R2DBC_URL=r2dbc:postgresql://excellent-postgres:5432/excellentdb_order
       - SPRING_FLYWAY_URL=jdbc:postgresql://excellent-postgres:5432/excellentdb_order
 
-  config-service: 
+  excellent-config-service: 
     image: "config-service"
     container_name: "config-service"
     ports:
@@ -61,7 +61,7 @@ services:
     ports:
       - 6379:6379
 
-  edge-service:
+  excellent-edge-service:
     depends_on:
       - excellent-redis
     image: "edge-service"
@@ -86,11 +86,11 @@ services:
     volumes:
       - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf 
 
-  excellent-keycloak: 
+  excellent-keycloak:  # Section describing the KeyCloak Container
     image: quay.io/keycloak/keycloak:22.0.5
     container_name: "excellent-keycloak"
-    command: start-dev
-    environment: 
+    command: start-dev # start keycloak in development mode (using an embedded database)
+    environment:  # credentials
       - KEYCLOAK_ADMIN=user
       - KEYCLOAK_ADMIN_PASSWORD=password
     ports:
