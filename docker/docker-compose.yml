@@ -89,7 +89,9 @@ services:
   excellent-keycloak:  # Section describing the KeyCloak Container
     image: quay.io/keycloak/keycloak:22.0.5
     container_name: "excellent-keycloak"
-    command: start-dev # start keycloak in development mode (using an embedded database)
+    command: start-dev --import-realm # start keycloak in development mode (using an embedded database)
+    volumes:
+      - ./keycloak:/opt/keycloak/data/import
     environment:  # credentials
       - KEYCLOAK_ADMIN=user
       - KEYCLOAK_ADMIN_PASSWORD=password
