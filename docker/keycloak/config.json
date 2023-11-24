@@ -411,11 +411,11 @@
     }, {
       "id" : "517690d7-1816-4721-b764-54bb483de24e",
       "createdTimestamp" : 1700724644183,
-      "username" : "taro",
+      "username" : "crykos",
       "enabled" : true,
       "totp" : false,
       "emailVerified" : false,
-      "firstName" : "Virtue",
+      "firstName" : "Amiga",
       "lastName" : "Amigo",
       "credentials" : [ {
         "id" : "9478db3b-9cab-45a9-a9f3-eec169d219cb",
