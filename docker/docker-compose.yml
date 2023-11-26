@@ -97,3 +97,11 @@ services:
       - KEYCLOAK_ADMIN_PASSWORD=password
     ports:
       - 8080:8080
+  
+  excellent-ui:
+    image: "ghcr.io/polarbookshop/polar-ui:latest"   
+    container_name: "polar-ui"
+    ports:
+      - 9004:9004                                
+    environment:
+      - PORT=9004             
